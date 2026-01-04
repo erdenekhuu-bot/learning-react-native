@@ -31,7 +31,7 @@ export default function HomeScreen() {
           <Text style={{ fontSize: 30, textAlign: "center" }}>HOME SCREEN</Text>
         </View>
         <View>
-          <Text>Lorem 132</Text>
+          <Text>Lorem 1324</Text>
         </View>
       </View>
     </SafeAreaView>
