@@ -17,6 +17,7 @@ export default function HomeScreen() {
           throw new Error("Network response was not ok");
         }
         const data = await response.json();
+        console.log(data)
         setCategory(data);
       } catch (err) {
          console.log(err)
@@ -50,7 +51,9 @@ export default function HomeScreen() {
         </View>
         <View>
           <Text style={{ fontSize: 30, textAlign: "center" }}>HOME SCREEN</Text>
-          {category.map((item:any)=>(<Text>{item.name}</Text>))}
+          {category.map((item: any) => (
+  <Text key={item._id}>{item.name}</Text>
+))}
         </View>
         <View>
           <Text>Lorem 1324</Text>
