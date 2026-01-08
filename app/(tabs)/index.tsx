@@ -1,10 +1,31 @@
 import { Image } from "expo-image";
 import { Text, View, TextInput, SafeAreaView } from "react-native";
 import { Link } from "expo-router";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function HomeScreen() {
   const [text, onChangeText] = useState("");
+  const [category, setCategory]=useState([])
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchCategories() {
+      try {
+        setLoading(true)
+        const response = await fetch("http://192.168.6.144:7001/api/category", {method: "GET"});
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        const data = await response.json();
+        setCategory(data);
+      } catch (err) {
+         console.log(err)
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchCategories();
+  }, []);
 
   return (
     <SafeAreaView
@@ -29,6 +50,7 @@ export default function HomeScreen() {
         </View>
         <View>
           <Text style={{ fontSize: 30, textAlign: "center" }}>HOME SCREEN</Text>
+          {category.map((item:any)=>(<Text>{item.name}</Text>))}
         </View>
         <View>
           <Text>Lorem 1324</Text>
