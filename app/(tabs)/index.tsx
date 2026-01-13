@@ -2,6 +2,9 @@ import { Image } from "expo-image";
 import { Text, View, TextInput, SafeAreaView } from "react-native";
 import { Link } from "expo-router";
 import { useState, useEffect } from "react";
+import { Box } from '@/components/ui/box';
+import { VStack } from '@/components/ui/vstack';
+import { Button, ButtonText } from '@/components/ui/button';
 
 export default function HomeScreen() {
   const [text, onChangeText] = useState("");
@@ -17,7 +20,6 @@ export default function HomeScreen() {
           throw new Error("Network response was not ok");
         }
         const data = await response.json();
-        console.log(data)
         setCategory(data);
       } catch (err) {
          console.log(err)
@@ -35,30 +37,29 @@ export default function HomeScreen() {
         backgroundColor: "white"
       }}
     >
-      <View>
-        <View style={{marginVertical: 50, paddingHorizontal: 20}}>
+      <VStack space="2xl">
+        <View style={{marginVertical: 20, paddingHorizontal: 20}}>
           <TextInput
             style={{
               borderColor: "gray",
               borderRadius: 10,
               borderWidth: 1,
-              marginBottom: 10,
               paddingHorizontal: 10,
             }}
             onChangeText={onChangeText}
             value={text}
           />
         </View>
-        <View>
-          <Text style={{ fontSize: 30, textAlign: "center" }}>HOME SCREEN</Text>
-          {category.map((item: any) => (
-  <Text key={item._id}>{item.name}</Text>
-))}
+       
+        <View style={{ display: 'flex', flexWrap: 'wrap', flexDirection: 'row', justifyContent: 'space-around' }}>
+            {category.map((item:any) => (
+              <Button key={item._id} style={{margin: 4}} onPress={()=>{console.log(`clicked ${item.name}`)}}>
+                <ButtonText>{item.name}</ButtonText>
+              </Button>
+            ))}
         </View>
-        <View>
-          <Text>Lorem 1324</Text>
-        </View>
-      </View>
+        <View><Text>1</Text></View>
+      </VStack>
     </SafeAreaView>
   );
 }
