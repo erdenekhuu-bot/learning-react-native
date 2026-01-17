@@ -69,7 +69,7 @@ export default function HomeScreen() {
         </View>
        
         <View style={{ display: 'flex', flexWrap: 'wrap', flexDirection: 'row', justifyContent: 'space-around' }}>
-                    {category.map((item:any) => (
+              {category.map((item:any) => (
                       <Button key={item._id} style={{margin: 4}} onPress={()=>{setIndex(item._id)}}>
                         <ButtonText>{item.name}</ButtonText>
                       </Button>
