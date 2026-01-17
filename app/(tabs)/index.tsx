@@ -17,7 +17,7 @@ export default function HomeScreen() {
   useEffect(() => {
     async function fetchCategories() {
       try {
-        const response = await fetch("http://192.168.6.144:7001/api/category", {method: "GET"});
+        const response = await fetch(`${process.env.EXPO_PUBLIC_API_URL}/api/category`, {method: "GET"});
         if (!response.ok) {
           throw new Error("Ohh man, something happened on request");
         }
@@ -33,7 +33,7 @@ export default function HomeScreen() {
  useEffect(() => {
    async function fetchProducts(params) {
      try {
-       const response = await fetch(`http://192.168.6.144:7001/api/product?kind=${params}`, { method: "GET" });
+       const response = await fetch(`${process.env.EXPO_PUBLIC_API_URL}/api/product?kind=${params}`, { method: "GET" });
        if (!response.ok) {
          throw new Error("Ohh man, something happened on request");
        }
@@ -87,7 +87,7 @@ export default function HomeScreen() {
             <Card key={index} variant="outline">
              <Image
                   source={{
-                    uri: 'http://192.168.6.144:7001'+item.image
+                    uri: `${process.env.EXPO_PUBLIC_API_URL}`+item.image
                   }}
                   alt=""
                 />
