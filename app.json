@@ -4,7 +4,7 @@
     "slug": "learning-react-native",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
+    "icon": "./assets/images/appicon.png",
     "scheme": "learningreactnative",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
@@ -33,7 +33,7 @@
       [
         "expo-splash-screen",
         {
-          "image": "./assets/images/splashcoffee.png",
+          "image": "./assets/images/splashscreen.png",
           "imageWidth": 200,
           "resizeMode": "contain",
           "backgroundColor": "#ffffff",

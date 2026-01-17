@@ -6,6 +6,7 @@ import { VStack } from '@/components/ui/vstack';
 import { Button, ButtonText } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Image } from '@/components/ui/image';
+import { Input, InputField } from '@/components/ui/input';
 
 export default function HomeScreen() {
   const [text, onChangeText] = useState("");
@@ -56,16 +57,15 @@ export default function HomeScreen() {
     >
       <VStack space="2xl">
         <View style={{marginVertical: 20, paddingHorizontal: 20}}>
-          <TextInput
-            style={{
-              borderColor: "gray",
-              borderRadius: 10,
-              borderWidth: 1,
-              paddingHorizontal: 10,
-            }}
-            onChangeText={onChangeText}
-            value={text}
-          />
+           <Input
+                variant="rounded"
+                isDisabled={false}
+                isInvalid={false}
+                isReadOnly={false}
+                style={{ borderColor: "gray"}}
+              >
+                <InputField placeholder=""  value={text} onChangeText={onChangeText}/>
+           </Input>
         </View>
        
         <View style={{ display: 'flex', flexWrap: 'wrap', flexDirection: 'row', justifyContent: 'space-around' }}>
@@ -95,7 +95,7 @@ export default function HomeScreen() {
             </Card>
           ))}
         </View>
-
+        <Text>1</Text>
       </VStack>
     </SafeAreaView>
   );
