@@ -1,6 +1,7 @@
 import { Text, View, TextInput, SafeAreaView } from "react-native";
 import { useState, useEffect } from "react";
 import { FlatList } from "react-native";
+import { VStack } from "@/components/ui/vstack";
 
 export default function CartScreen() {
   const [lists, setList] = useState([]);
@@ -29,17 +30,27 @@ export default function CartScreen() {
     fetchCategories();
   }, []);
   return (
-    <SafeAreaView className="flex-1 items-center justify-center bg-white">
-      <FlatList
-        data={lists}
-        keyExtractor={(item) => item._id}
-        renderItem={({ item }) => (
-          <View className="p-4 border-b border-gray-200 w-full">
-            <Text className="text-lg font-semibold">{item.name}</Text>
-            <Text className="text-gray-600">Price: ${item.price}</Text>
-          </View>
-        )}
-      />
+    <SafeAreaView
+      style={{
+        flex: 1,
+        backgroundColor: "white",
+      }}
+    >
+      <VStack space="2xl">
+        <View className="block">
+          <Text className="text-2xl font-bold p-4">Your order</Text>
+        </View>
+        <FlatList
+          data={lists}
+          keyExtractor={(item) => item._id}
+          renderItem={({ item }) => (
+            <View className="p-4 border-b border-gray-200 w-full">
+              <Text className="text-lg font-semibold">{item.name}</Text>
+              <Text className="text-gray-600">Price: ${item.price}</Text>
+            </View>
+          )}
+        />
+      </VStack>
     </SafeAreaView>
   );
 }
