@@ -9,6 +9,7 @@ import { Image } from "@/components/ui/image";
 import { Input, InputField } from "@/components/ui/input";
 import { AddIcon } from "@/components/ui/icon";
 import { ScrollView } from "react-native";
+import { Heading } from "@/components/ui/heading";
 
 export default function HomeScreen() {
   const [text, onChangeText] = useState("");
@@ -121,7 +122,10 @@ export default function HomeScreen() {
                   className="w-32 h-32"
                   alt=""
                 />
-                <Text className="font-bold">{item.name}</Text>
+
+                <Heading size="md">
+                  <Text className="font-bold text-black">{item.name}</Text>
+                </Heading>
                 <Divider className="my-0.5" />
                 <View className="flex flex-row justify-between items-center">
                   <Text className="font-bold">{item.price}</Text>
