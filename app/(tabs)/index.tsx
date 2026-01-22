@@ -93,15 +93,15 @@ export default function HomeScreen() {
 
         <View className="flex flex-row flex-wrap justify-evenly">
           {category.map((item: any) => (
-            <Button
+            <Card
               key={item._id}
-              className="mx-2 my-1 px-4 py-2 bg-[#F5F5F5] rounded-full"
+              className="m-2 p-3 bg-[#846046] rounded-full"
               onPress={() => {
                 setIndex(item._id);
               }}
             >
-              <ButtonText>{item.name}</ButtonText>
-            </Button>
+              <Text className="text-white font-bold">{item.name}</Text>
+            </Card>
           ))}
         </View>
         <ScrollView
