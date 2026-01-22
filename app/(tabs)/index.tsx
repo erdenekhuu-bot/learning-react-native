@@ -6,7 +6,6 @@ import { VStack } from "@/components/ui/vstack";
 import { Button, ButtonText, ButtonIcon } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Image } from "@/components/ui/image";
-import { Input, InputField } from "@/components/ui/input";
 import { AddIcon } from "@/components/ui/icon";
 import { ScrollView } from "react-native";
 import { Heading } from "@/components/ui/heading";

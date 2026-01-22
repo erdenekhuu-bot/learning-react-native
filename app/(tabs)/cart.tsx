@@ -4,6 +4,7 @@ import { FlatList } from "react-native";
 import { VStack } from "@/components/ui/vstack";
 import { Card } from "@/components/ui/card";
 import { Image } from "@/components/ui/image";
+import { AddIcon, SunIcon } from "@/components/ui/icon";
 
 export default function CartScreen() {
   const [lists, setList] = useState([]);
@@ -43,6 +44,7 @@ export default function CartScreen() {
           <Text className="text-2xl font-bold p-4">Your order</Text>
         </View>
         <FlatList
+          className="h-[80%]"
           data={lists}
           keyExtractor={(item) => item._id}
           renderItem={({ item }) => (
