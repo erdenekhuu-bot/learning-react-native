@@ -68,6 +68,33 @@ export default function HomeScreen() {
     fetchProducts(index);
   }, [index]);
 
+  useEffect(() => {
+    async function searchProducts(params: string) {
+      try {
+        const response = await fetch(
+          `${process.env.EXPO_PUBLIC_API_URL}/api/product/search`,
+          {
+            method: "POST",
+            headers: {
+              Authorization: `Bearer ${process.env.EXPO_PUBLIC_TOKEN}`,
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ name: params }),
+          },
+        );
+        if (!response.ok) {
+          throw new Error("Ohh man, something happened on request");
+        }
+        const data = await response.json();
+        setProduct(data);
+      } catch (err) {
+        console.log(err);
+      }
+    }
+
+    searchProducts(text);
+  }, [text]);
+
   return (
     <SafeAreaView
       style={{
