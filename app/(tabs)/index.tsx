@@ -18,6 +18,17 @@ export default function HomeScreen() {
   const [index, setIndex] = useState("");
   const [product, setProduct] = useState([]);
 
+  async function makeSubscribe(id: string) {
+    await fetch(`${process.env.EXPO_PUBLIC_API_URL}/api/subscribe`, {
+      method: "PATCH",
+      headers: {
+        Authorization: `Bearer ${process.env.EXPO_PUBLIC_TOKEN}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ product: id }),
+    });
+  }
+
   useEffect(() => {
     async function fetchCategories() {
       try {
@@ -149,7 +160,10 @@ export default function HomeScreen() {
                 <Divider className="my-0.5" />
                 <View className="flex flex-row justify-between items-center">
                   <Text className="font-bold">${item.price}</Text>
-                  <Button className="w-4 rounded-full bg-[#846046]">
+                  <Button
+                    className="w-4 rounded-full bg-[#846046]"
+                    onPress={async () => await makeSubscribe(item._id)}
+                  >
                     <ButtonIcon as={AddIcon} className="text-white" />
                   </Button>
                 </View>
