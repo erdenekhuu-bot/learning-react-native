@@ -104,27 +104,33 @@ export default function HomeScreen() {
             </Button>
           ))}
         </View>
-        <View className="flex flex-row flex-wrap justify-between px-4">
-          {product.map((item: any, index: number) => (
-            <Card key={index} variant="outline" className="m-4">
-              <Image
-                source={{
-                  uri: `${process.env.EXPO_PUBLIC_API_URL}` + item.image,
-                }}
-                className="w-32 h-32"
-                alt=""
-              />
-              <Text className="font-bold">{item.name}</Text>
-              <Divider className="my-0.5" />
-              <View className="flex flex-row justify-between items-center">
-                <Text className="font-bold">{item.price}</Text>
-                <Button className="w-4 rounded-full bg-[#846046]">
-                  <ButtonIcon as={AddIcon} className="text-white" />
-                </Button>
-              </View>
-            </Card>
-          ))}
-        </View>
+        <ScrollView
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={{ paddingBottom: 40 }}
+          className="h-[80%]"
+        >
+          <View className="flex flex-row flex-wrap justify-between px-4">
+            {product.map((item: any, index: number) => (
+              <Card key={index} variant="outline" className="m-4">
+                <Image
+                  source={{
+                    uri: `${process.env.EXPO_PUBLIC_API_URL}` + item.image,
+                  }}
+                  className="w-32 h-32"
+                  alt=""
+                />
+                <Text className="font-bold">{item.name}</Text>
+                <Divider className="my-0.5" />
+                <View className="flex flex-row justify-between items-center">
+                  <Text className="font-bold">{item.price}</Text>
+                  <Button className="w-4 rounded-full bg-[#846046]">
+                    <ButtonIcon as={AddIcon} className="text-white" />
+                  </Button>
+                </View>
+              </Card>
+            ))}
+          </View>
+        </ScrollView>
       </VStack>
     </SafeAreaView>
   );
