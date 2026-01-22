@@ -90,18 +90,11 @@ export default function HomeScreen() {
           </Input>
         </View>
 
-        <View
-          style={{
-            display: "flex",
-            flexWrap: "wrap",
-            flexDirection: "row",
-            justifyContent: "space-around",
-          }}
-        >
+        <View className="flex flex-row flex-wrap justify-evenly">
           {category.map((item: any) => (
             <Button
               key={item._id}
-              style={{ margin: 4 }}
+              className="mx-2 my-1 px-4 py-2 bg-[#F5F5F5] rounded-full"
               onPress={() => {
                 setIndex(item._id);
               }}
@@ -110,16 +103,9 @@ export default function HomeScreen() {
             </Button>
           ))}
         </View>
-        <View
-          style={{
-            display: "flex",
-            flexWrap: "wrap",
-            flexDirection: "row",
-            justifyContent: "space-around",
-          }}
-        >
+        <View className="flex flex-row flex-wrap justify-between px-4">
           {product.map((item: any, index: number) => (
-            <Card key={index} variant="outline">
+            <Card key={index} variant="outline" className="m-4">
               <Image
                 source={{
                   uri: `${process.env.EXPO_PUBLIC_API_URL}` + item.image,
@@ -138,7 +124,6 @@ export default function HomeScreen() {
             </Card>
           ))}
         </View>
-        <Text>1</Text>
       </VStack>
     </SafeAreaView>
   );
