@@ -5,9 +5,11 @@ import { VStack } from "@/components/ui/vstack";
 import { Card } from "@/components/ui/card";
 import { Image } from "@/components/ui/image";
 import { AddIcon, SunIcon } from "@/components/ui/icon";
+import { Button, ButtonText, ButtonIcon } from "@/components/ui/button";
 
 export default function CartScreen() {
   const [lists, setList] = useState([]);
+  const [count, setCount] = useState(1);
   useEffect(() => {
     async function fetchCategories() {
       try {
@@ -59,13 +61,22 @@ export default function CartScreen() {
                   className="block w-32 h-32 rounded-xl"
                   alt=""
                 />
-                <View>
+                <View className="flex flex-col justify-between">
                   <Text className="font-bold text-lg text-black">
                     {item?.product?.name}
                   </Text>
                   <Text className="font-bold text-lg text-black">
                     {item?.product?.price}$
                   </Text>
+                  <View className="flex flex-row gap-2 flex-end">
+                    <Button className="w-0.5 rounded-full bg-black">
+                      <ButtonIcon as={AddIcon} className="text-white" />
+                    </Button>
+                    <Text className="text-center text-black my-2">{count}</Text>
+                    <Button className="w-0.5 rounded-full bg-black">
+                      <ButtonIcon as={SunIcon} className="text-white" />
+                    </Button>
+                  </View>
                 </View>
               </View>
             </Card>
