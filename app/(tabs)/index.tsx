@@ -10,6 +10,7 @@ import { Input, InputField } from "@/components/ui/input";
 import { AddIcon } from "@/components/ui/icon";
 import { ScrollView } from "react-native";
 import { Heading } from "@/components/ui/heading";
+import myImage from "../../assets/images/favorite-icon.svg";
 
 export default function HomeScreen() {
   const [text, onChangeText] = useState("");
@@ -131,7 +132,7 @@ export default function HomeScreen() {
           contentContainerStyle={{ paddingBottom: 40 }}
           className="h-[80%]"
         >
-          <View className="flex flex-row flex-wrap justify-between px-4">
+          <View className="flex flex-row flex-wrap justify-evenly px-4">
             {product.map((item: any, index: number) => (
               <Card key={index} variant="outline" className="m-4">
                 <Image
