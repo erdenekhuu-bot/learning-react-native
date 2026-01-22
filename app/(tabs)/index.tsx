@@ -82,12 +82,13 @@ export default function HomeScreen() {
             isDisabled={false}
             isInvalid={false}
             isReadOnly={false}
-            style={{ borderColor: "gray" }}
           >
             <InputField
               placeholder=""
               value={text}
               onChangeText={onChangeText}
+              type="text"
+              style={{ color: "black" }}
             />
           </Input>
         </View>
