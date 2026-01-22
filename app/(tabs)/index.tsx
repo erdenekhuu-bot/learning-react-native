@@ -8,6 +8,7 @@ import { Card } from "@/components/ui/card";
 import { Image } from "@/components/ui/image";
 import { Input, InputField } from "@/components/ui/input";
 import { AddIcon } from "@/components/ui/icon";
+import { ScrollView } from "react-native";
 
 export default function HomeScreen() {
   const [text, onChangeText] = useState("");
