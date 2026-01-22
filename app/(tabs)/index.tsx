@@ -128,7 +128,7 @@ export default function HomeScreen() {
                 </Heading>
                 <Divider className="my-0.5" />
                 <View className="flex flex-row justify-between items-center">
-                  <Text className="font-bold">{item.price}</Text>
+                  <Text className="font-bold">${item.price}</Text>
                   <Button className="w-4 rounded-full bg-[#846046]">
                     <ButtonIcon as={AddIcon} className="text-white" />
                   </Button>
