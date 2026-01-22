@@ -47,18 +47,25 @@ export default function CartScreen() {
           keyExtractor={(item) => item._id}
           renderItem={({ item }) => (
             <Card key={item._id} variant="outline" className="m-4 p-4">
-              {/* <View className="flex flex-row justify-between items-center">
-                <Text className="font-bold text-lg">{item.name}</Text>
-                <Text className="font-bold">${item.price}</Text>
-              </View> */}
-              <Image
-                source={{
-                  uri:
-                    `${process.env.EXPO_PUBLIC_API_URL}` + item?.product?.image,
-                }}
-                className="block w-32 h-32 rounded-xl"
-                alt=""
-              />
+              <View className="flex flex-row gap-4">
+                <Image
+                  source={{
+                    uri:
+                      `${process.env.EXPO_PUBLIC_API_URL}` +
+                      item?.product?.image,
+                  }}
+                  className="block w-32 h-32 rounded-xl"
+                  alt=""
+                />
+                <View>
+                  <Text className="font-bold text-lg text-black">
+                    {item?.product?.name}
+                  </Text>
+                  <Text className="font-bold text-lg text-black">
+                    {item?.product?.price}$
+                  </Text>
+                </View>
+              </View>
             </Card>
           )}
         />
