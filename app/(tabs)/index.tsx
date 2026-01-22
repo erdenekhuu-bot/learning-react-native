@@ -77,20 +77,11 @@ export default function HomeScreen() {
     >
       <VStack space="2xl">
         <View style={{ marginVertical: 20, paddingHorizontal: 20 }}>
-          <Input
-            variant="rounded"
-            isDisabled={false}
-            isInvalid={false}
-            isReadOnly={false}
-          >
-            <InputField
-              placeholder=""
-              value={text}
-              onChangeText={onChangeText}
-              type="text"
-              style={{ color: "black" }}
-            />
-          </Input>
+          <TextInput
+            onChangeText={onChangeText}
+            value={text}
+            className="block border border-black rounded-2xl px-4 py-2"
+          />
         </View>
 
         <View className="flex flex-row flex-wrap justify-evenly">
