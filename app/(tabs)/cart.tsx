@@ -1,4 +1,4 @@
-import { View, Text } from "react-native";
+import { Text, View, TextInput, SafeAreaView } from "react-native";
 import { useState, useEffect } from "react";
 import { FlatList } from "react-native";
 
@@ -29,8 +29,17 @@ export default function CartScreen() {
     fetchCategories();
   }, []);
   return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text style={{ fontSize: 30 }}>CART SCREEN</Text>
-    </View>
+    <SafeAreaView className="flex-1 items-center justify-center bg-white">
+      <FlatList
+        data={lists}
+        keyExtractor={(item) => item._id}
+        renderItem={({ item }) => (
+          <View className="p-4 border-b border-gray-200 w-full">
+            <Text className="text-lg font-semibold">{item.name}</Text>
+            <Text className="text-gray-600">Price: ${item.price}</Text>
+          </View>
+        )}
+      />
+    </SafeAreaView>
   );
 }
