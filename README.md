@@ -50,4 +50,4 @@ Join our community of developers creating universal apps.
 - [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
 
 
-I HATE REACT-NATIVE
+I HATE REACT-NATIVE. I NEVER TOUCH IT AGAIN
